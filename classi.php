@@ -1,6 +1,11 @@
 <?php
-
+session_start();
 // 1. Crea una classe `User` che rappresenti un utente con attributi come nome, cognome, email e password.
+
+$users = array(
+    0 => 'culo'
+);
+
 
 class User{
     //creo le variabili
@@ -17,10 +22,8 @@ class User{
         $this->password = $password;
     }
 
-    
+    public function push($var){
+        array_push($users, $var);
+    }
 }
-
-
-
-
 ?>
