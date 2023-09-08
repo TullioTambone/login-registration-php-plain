@@ -5,19 +5,15 @@
 
 include __DIR__ . '/classi.php';
 
-// print_r($_SESSION);
+// print_r($_SESSION); 
 
 if(isset($_POST['submit'])){
-    $_SESSION['name'] = $_POST['name'];
-    $_SESSION['surname'] = $_POST['surname'];
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['password'] = $_POST['password'];
+  $nome = $_POST['name'];
+  $gannone = new User($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['password']);
 
-    $gannone = new User($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['password']);
-
-    $gannone->push($gannone);
-    var_dump($users);
-    header('Location: profile.php');
+  $_SESSION['users'] = $gannone;
+ 
+  header('Location: profile.php?username='.$nome);
 }
 
 

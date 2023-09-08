@@ -2,10 +2,9 @@
 session_start();
 // 1. Crea una classe `User` che rappresenti un utente con attributi come nome, cognome, email e password.
 
-$users = array(
-    0 => 'culo'
-);
-
+$users = [
+    new User('nome' , 'cognome' , 'mail@mail.com', 'password'),
+];
 
 class User{
     //creo le variabili
@@ -22,8 +21,14 @@ class User{
         $this->password = $password;
     }
 
-    public function push($var){
-        array_push($users, $var);
+    public function getName(){
+        return $this->name;
     }
+    public function getMail(){
+        return $this->email;
+    }
+
 }
+
+var_dump($users)
 ?>
